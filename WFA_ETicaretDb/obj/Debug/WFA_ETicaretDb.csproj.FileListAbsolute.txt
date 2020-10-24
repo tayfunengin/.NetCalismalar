@@ -1,0 +1,15 @@
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\bin\Debug\WFA_ETicaretDb.exe.config
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\bin\Debug\WFA_ETicaretDb.exe
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\bin\Debug\WFA_ETicaretDb.pdb
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\obj\Debug\WFA_ETicaretDb.csprojAssemblyReference.cache
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\obj\Debug\WFA_ETicaretDb.Form1.resources
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\obj\Debug\WFA_ETicaretDb.Properties.Resources.resources
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\obj\Debug\WFA_ETicaretDb.csproj.GenerateResource.cache
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\obj\Debug\WFA_ETicaretDb.csproj.CoreCompileInputs.cache
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\obj\Debug\WFA_ETicaretDb.exe
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\obj\Debug\WFA_ETicaretDb.pdb
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\bin\Debug\EntityFramework.dll
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\bin\Debug\EntityFramework.xml
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Tayfun\source\repos\WFA_ETicaretDb\obj\Debug\WFA_ETicaretDb.csproj.CopyComplete

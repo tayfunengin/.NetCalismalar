@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eTicaretDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADDRES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERID" Type="int" Nullable="false" />
+    <Property Name="COUNTRYID" Type="int" />
+    <Property Name="CITYID" Type="int" />
+    <Property Name="TOWNID" Type="int" />
+    <Property Name="NO" Type="smallint" />
+  </EntityType>
+  <EntityType Name="CITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CITY" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="COUNTRYId" Type="int" />
+  </EntityType>
+  <EntityType Name="COUNTRY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COUNTRY" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDERDETAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORDERId" Type="int" Nullable="false" />
+    <Property Name="PRODUCTId" Type="int" Nullable="false" />
+    <Property Name="AMOUNT" Type="smallint" Nullable="false" />
+    <Property Name="PRICE" Type="float" Nullable="false" />
+    <Property Name="TOTAL" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERId" Type="int" Nullable="false" />
+    <Property Name="ORDERDATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCTCATEGORY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORYNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCTCODE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PRODUCTNAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="PRICE" Type="float" />
+    <Property Name="CATEGORYId" Type="int" />
+    <Property Name="SUBCATEGORYId" Type="int" />
+  </EntityType>
+  <EntityType Name="PRODUCTSUBCATEGORY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUBCATEGORYNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="CATEGORYId" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TOWN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TOWN" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CITYId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER_">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME_" Type="nvarchar" MaxLength="50" />
+    <Property Name="PASSWORD_" Type="nvarchar" MaxLength="50" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="SURNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
+    <Property Name="GENDER" Type="varchar" MaxLength="1" />
+    <Property Name="BIRTHDATE" Type="date" />
+    <Property Name="PHONE" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <Association Name="FK_ADDRES_CITY">
+    <End Role="CITY" Type="Self.CITY" Multiplicity="0..1" />
+    <End Role="ADDRES" Type="Self.ADDRES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ADDRES">
+        <PropertyRef Name="CITYID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ADDRES_COUNTRY">
+    <End Role="COUNTRY" Type="Self.COUNTRY" Multiplicity="0..1" />
+    <End Role="ADDRES" Type="Self.ADDRES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COUNTRY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ADDRES">
+        <PropertyRef Name="COUNTRYID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ADDRES_TOWN">
+    <End Role="TOWN" Type="Self.TOWN" Multiplicity="0..1" />
+    <End Role="ADDRES" Type="Self.ADDRES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOWN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ADDRES">
+        <PropertyRef Name="TOWNID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ADDRES_USER_">
+    <End Role="USER_" Type="Self.USER_" Multiplicity="1" />
+    <End Role="ADDRES" Type="Self.ADDRES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ADDRES">
+        <PropertyRef Name="USERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CITY_COUNTRY">
+    <End Role="COUNTRY" Type="Self.COUNTRY" Multiplicity="0..1" />
+    <End Role="CITY" Type="Self.CITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COUNTRY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CITY">
+        <PropertyRef Name="COUNTRYId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDERDETAILS_ORDERS">
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="1" />
+    <End Role="ORDERDETAILS" Type="Self.ORDERDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERDETAILS">
+        <PropertyRef Name="ORDERId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDERDETAILS_PRODUCT">
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
+    <End Role="ORDERDETAILS" Type="Self.ORDERDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERDETAILS">
+        <PropertyRef Name="PRODUCTId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDERS_USER_1">
+    <End Role="USER_" Type="Self.USER_" Multiplicity="1" />
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="USERId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUCT_PRODUCTCATEGORY">
+    <End Role="PRODUCTCATEGORY" Type="Self.PRODUCTCATEGORY" Multiplicity="0..1" />
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTCATEGORY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRODUCTS">
+        <PropertyRef Name="CATEGORYId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUCT_PRODUCTSUBCATEGORY">
+    <End Role="PRODUCTSUBCATEGORY" Type="Self.PRODUCTSUBCATEGORY" Multiplicity="0..1" />
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTSUBCATEGORY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRODUCTS">
+        <PropertyRef Name="SUBCATEGORYId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUCTSUBCATEGORY_PRODUCTCATEGORY">
+    <End Role="PRODUCTCATEGORY" Type="Self.PRODUCTCATEGORY" Multiplicity="0..1" />
+    <End Role="PRODUCTSUBCATEGORY" Type="Self.PRODUCTSUBCATEGORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTCATEGORY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PRODUCTSUBCATEGORY">
+        <PropertyRef Name="CATEGORYId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOWN_CITY">
+    <End Role="CITY" Type="Self.CITY" Multiplicity="1" />
+    <End Role="TOWN" Type="Self.TOWN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CITY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TOWN">
+        <PropertyRef Name="CITYId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="eTicaretDBModelStoreContainer">
+    <EntitySet Name="ADDRES" EntityType="Self.ADDRES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CITY" EntityType="Self.CITY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COUNTRY" EntityType="Self.COUNTRY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERDETAILS" EntityType="Self.ORDERDETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTCATEGORY" EntityType="Self.PRODUCTCATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTSUBCATEGORY" EntityType="Self.PRODUCTSUBCATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TOWN" EntityType="Self.TOWN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_" EntityType="Self.USER_" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ADDRES_CITY" Association="Self.FK_ADDRES_CITY">
+      <End Role="CITY" EntitySet="CITY" />
+      <End Role="ADDRES" EntitySet="ADDRES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ADDRES_COUNTRY" Association="Self.FK_ADDRES_COUNTRY">
+      <End Role="COUNTRY" EntitySet="COUNTRY" />
+      <End Role="ADDRES" EntitySet="ADDRES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ADDRES_TOWN" Association="Self.FK_ADDRES_TOWN">
+      <End Role="TOWN" EntitySet="TOWN" />
+      <End Role="ADDRES" EntitySet="ADDRES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ADDRES_USER_" Association="Self.FK_ADDRES_USER_">
+      <End Role="USER_" EntitySet="USER_" />
+      <End Role="ADDRES" EntitySet="ADDRES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CITY_COUNTRY" Association="Self.FK_CITY_COUNTRY">
+      <End Role="COUNTRY" EntitySet="COUNTRY" />
+      <End Role="CITY" EntitySet="CITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDERDETAILS_ORDERS" Association="Self.FK_ORDERDETAILS_ORDERS">
+      <End Role="ORDERS" EntitySet="ORDERS" />
+      <End Role="ORDERDETAILS" EntitySet="ORDERDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDERDETAILS_PRODUCT" Association="Self.FK_ORDERDETAILS_PRODUCT">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="ORDERDETAILS" EntitySet="ORDERDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDERS_USER_1" Association="Self.FK_ORDERS_USER_1">
+      <End Role="USER_" EntitySet="USER_" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUCT_PRODUCTCATEGORY" Association="Self.FK_PRODUCT_PRODUCTCATEGORY">
+      <End Role="PRODUCTCATEGORY" EntitySet="PRODUCTCATEGORY" />
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUCT_PRODUCTSUBCATEGORY" Association="Self.FK_PRODUCT_PRODUCTSUBCATEGORY">
+      <End Role="PRODUCTSUBCATEGORY" EntitySet="PRODUCTSUBCATEGORY" />
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUCTSUBCATEGORY_PRODUCTCATEGORY" Association="Self.FK_PRODUCTSUBCATEGORY_PRODUCTCATEGORY">
+      <End Role="PRODUCTCATEGORY" EntitySet="PRODUCTCATEGORY" />
+      <End Role="PRODUCTSUBCATEGORY" EntitySet="PRODUCTSUBCATEGORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOWN_CITY" Association="Self.FK_TOWN_CITY">
+      <End Role="CITY" EntitySet="CITY" />
+      <End Role="TOWN" EntitySet="TOWN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
