@@ -53,6 +53,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbKategori = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtUrunKodu = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -117,6 +120,7 @@
             this.txtAra.Name = "txtAra";
             this.txtAra.Size = new System.Drawing.Size(428, 26);
             this.txtAra.TabIndex = 23;
+            this.txtAra.TextChanged += new System.EventHandler(this.TxtAra_TextChanged);
             // 
             // radioButton2
             // 
@@ -128,6 +132,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Fiyata Göre Azalan";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.RadioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -139,6 +144,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Fiyata Göre Artan";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -153,23 +159,23 @@
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Kategori Adı";
-            this.columnHeader5.Width = 228;
+            this.columnHeader5.Text = "Stok";
+            this.columnHeader5.Width = 158;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Stok";
-            this.columnHeader4.Width = 134;
+            this.columnHeader4.Text = "Fiyat";
+            this.columnHeader4.Width = 176;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Fiyat";
+            this.columnHeader3.Text = "Ürün Adı";
             this.columnHeader3.Width = 155;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Ürün Adı";
-            this.columnHeader2.Width = 248;
+            this.columnHeader2.Text = "Ürün Kodu";
+            this.columnHeader2.Width = 131;
             // 
             // listView1
             // 
@@ -178,12 +184,13 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.columnHeader6});
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(41, 215);
+            this.listView1.Location = new System.Drawing.Point(41, 236);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(861, 322);
+            this.listView1.Size = new System.Drawing.Size(861, 298);
             this.listView1.TabIndex = 21;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -195,12 +202,13 @@
             // 
             // btnUrunKaydet
             // 
-            this.btnUrunKaydet.Location = new System.Drawing.Point(144, 163);
+            this.btnUrunKaydet.Location = new System.Drawing.Point(145, 196);
             this.btnUrunKaydet.Name = "btnUrunKaydet";
             this.btnUrunKaydet.Size = new System.Drawing.Size(153, 34);
             this.btnUrunKaydet.TabIndex = 19;
             this.btnUrunKaydet.Text = "Ürün Kaydet";
             this.btnUrunKaydet.UseVisualStyleBackColor = true;
+            this.btnUrunKaydet.Click += new System.EventHandler(this.BtnUrunKaydet_Click);
             // 
             // btnKategoriEkle
             // 
@@ -210,58 +218,64 @@
             this.btnKategoriEkle.TabIndex = 20;
             this.btnKategoriEkle.Text = "Kategori Ekle";
             this.btnKategoriEkle.UseVisualStyleBackColor = true;
+            this.btnKategoriEkle.Click += new System.EventHandler(this.BtnKategoriEkle_Click);
             // 
             // nudStokMiktar
             // 
-            this.nudStokMiktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudStokMiktar.Location = new System.Drawing.Point(144, 131);
+            this.nudStokMiktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.nudStokMiktar.Location = new System.Drawing.Point(145, 164);
             this.nudStokMiktar.Name = "nudStokMiktar";
-            this.nudStokMiktar.Size = new System.Drawing.Size(153, 26);
+            this.nudStokMiktar.Size = new System.Drawing.Size(153, 23);
             this.nudStokMiktar.TabIndex = 17;
             // 
             // nudFiyat
             // 
-            this.nudFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudFiyat.Location = new System.Drawing.Point(144, 94);
+            this.nudFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.nudFiyat.Location = new System.Drawing.Point(145, 127);
+            this.nudFiyat.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudFiyat.Name = "nudFiyat";
-            this.nudFiyat.Size = new System.Drawing.Size(153, 26);
+            this.nudFiyat.Size = new System.Drawing.Size(153, 23);
             this.nudFiyat.TabIndex = 18;
             // 
             // txtUrunAd
             // 
-            this.txtUrunAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtUrunAd.Location = new System.Drawing.Point(144, 58);
+            this.txtUrunAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtUrunAd.Location = new System.Drawing.Point(145, 93);
             this.txtUrunAd.Name = "txtUrunAd";
-            this.txtUrunAd.Size = new System.Drawing.Size(153, 26);
+            this.txtUrunAd.Size = new System.Drawing.Size(153, 23);
             this.txtUrunAd.TabIndex = 16;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(37, 139);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(38, 172);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 20);
+            this.label4.Size = new System.Drawing.Size(85, 17);
             this.label4.TabIndex = 13;
             this.label4.Text = "Stok Miktarı:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(37, 103);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(38, 136);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 20);
+            this.label3.Size = new System.Drawing.Size(77, 17);
             this.label3.TabIndex = 14;
             this.label3.Text = "Ürün Fiyat:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(37, 67);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(38, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 20);
+            this.label2.Size = new System.Drawing.Size(67, 17);
             this.label2.TabIndex = 15;
             this.label2.Text = "Ürün Adı:";
             // 
@@ -285,6 +299,29 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Ürün Ara";
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "KategoriID";
+            this.columnHeader6.Width = 97;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(38, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 17);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Ürün Kodu:";
+            // 
+            // txtUrunKodu
+            // 
+            this.txtUrunKodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtUrunKodu.Location = new System.Drawing.Point(145, 60);
+            this.txtUrunKodu.Name = "txtUrunKodu";
+            this.txtUrunKodu.Size = new System.Drawing.Size(153, 23);
+            this.txtUrunKodu.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,9 +337,11 @@
             this.Controls.Add(this.btnKategoriEkle);
             this.Controls.Add(this.nudStokMiktar);
             this.Controls.Add(this.nudFiyat);
+            this.Controls.Add(this.txtUrunKodu);
             this.Controls.Add(this.txtUrunAd);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbKategori);
             this.Controls.Add(this.label1);
@@ -349,6 +388,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbKategori;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtUrunKodu;
     }
 }
 
