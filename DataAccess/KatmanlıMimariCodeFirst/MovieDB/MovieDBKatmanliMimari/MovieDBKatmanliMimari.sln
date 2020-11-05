@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "..\DAL\DAL.csproj", "{10DC950F-8911-4265-A1F6-20ECDA271BE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "..\BLL\BLL.csproj", "{C14D585D-3BCE-4649-BA86-0AD67A9555A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieWinForm", "..\MovieWinForm\MovieWinForm.csproj", "{25EF2C3F-CED0-4696-8DF2-75BA814B8DFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10DC950F-8911-4265-A1F6-20ECDA271BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10DC950F-8911-4265-A1F6-20ECDA271BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10DC950F-8911-4265-A1F6-20ECDA271BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10DC950F-8911-4265-A1F6-20ECDA271BE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C14D585D-3BCE-4649-BA86-0AD67A9555A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C14D585D-3BCE-4649-BA86-0AD67A9555A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C14D585D-3BCE-4649-BA86-0AD67A9555A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C14D585D-3BCE-4649-BA86-0AD67A9555A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25EF2C3F-CED0-4696-8DF2-75BA814B8DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25EF2C3F-CED0-4696-8DF2-75BA814B8DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25EF2C3F-CED0-4696-8DF2-75BA814B8DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25EF2C3F-CED0-4696-8DF2-75BA814B8DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55B871B3-B8BC-4D0C-A2D0-56AA7238F9AF}
+	EndGlobalSection
+EndGlobal
